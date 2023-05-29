@@ -26,9 +26,12 @@ const VERSION = "0.27.1"
 
 // New creates a new Discord session with provided token.
 // If the token is for a bot, it must be prefixed with "Bot "
-// 		e.g. "Bot ..."
+//
+//	e.g. "Bot ..."
+//
 // Or if it is an OAuth2 token, it must be prefixed with "Bearer "
-//		e.g. "Bearer ..."
+//
+//	e.g. "Bearer ..."
 func New(token string) (s *Session, err error) {
 
 	// Create an empty Session interface.
@@ -44,7 +47,7 @@ func New(token string) (s *Session, err error) {
 		MaxRestRetries:         3,
 		Client:                 &http.Client{Timeout: (20 * time.Second)},
 		Dialer:                 websocket.DefaultDialer,
-		UserAgent:              "DiscordBot (https://github.com/bwmarrin/discordgo, v" + VERSION + ")",
+		UserAgent:              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
 		sequence:               new(int64),
 		LastHeartbeatAck:       time.Now().UTC(),
 	}
